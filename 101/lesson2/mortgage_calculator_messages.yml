@@ -1,0 +1,9 @@
+# mortgage_calculator_messages.yml
+
+welcome: "Welcome to the Mortgage/Car Loan Calculator"
+explanation: "Using loan amount, loan duration, and annual percentage rate: we will calculate your monthly payment."
+invalid: "Invalid entry. Please try again."
+ask_loan_amount: "What is the loan amount?"
+ask_apr: "What is the annual percentage rate (APR) of the loan (in percentage)? e.g. '5' for '5%'"
+ask_loan_duration: "What is the duration of your loan (in months)?"
+monthly_payment: "Your monthly payment is: "
