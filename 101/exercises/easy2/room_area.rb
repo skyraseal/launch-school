@@ -1,4 +1,4 @@
-#still incomplete.  Unit choice not working.  Meters only.
+#Works, but incomplete incorporation of methods.
 CONVERSION = 10.7639
 
 def prompt(message)
@@ -17,25 +17,26 @@ def sqft_to_sqmt(sqft)
   sqft/CONVERSION
 end
 
-unit_keys = {1 => "meters", 2 => "feet"}
 
 prompt("Welcome to the room area calculator!")
-prompt("What unit of measurement do you wish to use?\n(1) meters\n(2) feet")
-loop do
-  input = gets.chomp.to_i
-  options_list = unit_keys.each_pair { |k, v| "(#{k}): #{v}"}
-  if unit_keys.has_key?(input)
-    break
-  else
-    prompt("Invalid entry. Please choose the following options: #{options_list}")
-  end
+prompt("What unit of measurement do you wish to use?\n(1) meters\n(2) feet\n(Please enter the appropriate choice number)")
+unit_choice = gets.chomp.to_i
+
+if unit_choice == 1
+  prompt("Enter the length of the room in meters:")
+  length = gets.chomp.to_f
+
+  prompt("Enter the width of the room in meters:")
+  width = gets.chomp.to_f
+
+  prompt("The area of the room is #{room_area(length, width)} square meters (#{(room_area(length, width)*10.7639).round(2)} square feet).")
+
+elsif unit_choice == 2
+  prompt("Enter the length of the room in feet:")
+  length = gets.chomp.to_f
+
+  prompt("Enter the width of the room in feet:")
+  width = gets.chomp.to_f
+
+  prompt("The area of the room is #{room_area(length, width)} square feet (#{(room_area(length, width)/10.7639).round(2)} square meters).")
 end
-
-
-prompt("Enter the length of the room in meters:")
-length = gets.chomp.to_f
-
-prompt("Enter the width of the room in meters:")
-width = gets.chomp.to_f
-
-prompt("The area of the room is #{room_area(length, width)} square meters (#{(room_area(length, width)*10.7639).round(2)} square feet).")
