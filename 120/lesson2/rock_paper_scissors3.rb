@@ -5,7 +5,7 @@ class RPSGame
 
   def initialize
     @human = Human.new
-    @computer = Computer.new
+    @computer = Characters::R2D2.new
   end
 
   def display_moves
@@ -64,6 +64,8 @@ class RPSGame
       end
       display_game_winner
       break unless play_again?
+      human.reset_score
+      computer.reset_score
     end
 
     display_goodbye_message
@@ -163,6 +165,10 @@ class Player
     @score += 1
   end
 
+  def reset_score
+    @score = 0
+  end
+
   def record_last_move
     @move_history << move
   end
@@ -207,7 +213,6 @@ end
 
 module Characters
   class R2D2 < Computer
-    # spock doesn't exist
     @@choice_probability = {
                              'rock' => 1,
                              'paper' => 1,
@@ -215,9 +220,13 @@ module Characters
                              'lizard' => 1,
                              'spock' => 0
                            }
-    @@choice = []
+    @@choices = []
     @@choice_probability.each do |type, probability|
-      probability.times {@@choice << type}
+      probability.times {@@choices << type}
+    end
+
+    def set_name
+      self.name = "R2D2"
     end
 
     def choose
