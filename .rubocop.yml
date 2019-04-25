@@ -1,4 +1,4 @@
-# .rubocop.yml for non-101 courses (13 Mar 2017)
+# .rubocop.yml for non-RB101 courses (3 Jan 2019)
 
 AllCops:
   # Display cop names
@@ -23,6 +23,10 @@ Style/BlockComments:
 Style/BracesAroundHashParameters:
   Description: Forces certain brace styles when the last argument is a hash.
   Enabled: false
+
+Style/ClassVars:
+  Description: 'Checks for uses of class variables.'
+  Enabled: false  
 
 Style/CommandLiteral:
   Description: 'Use `` or %x around command literals.'
@@ -144,14 +148,14 @@ Style/PercentLiteralDelimiters:
   Enabled: true
   PreferredDelimiters:
     '%':  ()
-    '%i': '[]'
-    '%I': '[]'
+    '%i': ()
+    '%I': ()
     '%q': ()
     '%Q': ()
-    '%r': '{}'
+    '%r': ()
     '%s': ()
-    '%w': '[]'
-    '%W': '[]'
+    '%w': ()
+    '%W': ()
     '%x': ()
 
 Style/PerlBackrefs:
