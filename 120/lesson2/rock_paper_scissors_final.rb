@@ -1,11 +1,25 @@
 class RPSGame
-  @@winning_goal = 10
-
+  @@winning_goal =  10
+  @@character_id = {1 => :r2d2, 2 => :hal, 3 => :chappie, 4 => :sonny, 5 => :number5}
   attr_accessor :human, :computer
 
   def initialize
     @human = Human.new
-    @computer = Characters::R2D2.new
+
+    case @@character_id[rand(1..5)]
+    when :r2d2
+      @computer = Characters::R2D2.new
+    when :hal 
+      @computer = Characters::Hal.new
+    when :chappie 
+      @computer = Characters::Chappie.new 
+    when :sonny 
+      @computer = Characters::Sonny.new
+    when :number5 
+      @computer = Characters::Number5.new
+    else 
+      @computer = Characters::R2D2.new 
+    end
   end
 
   def display_moves
@@ -74,7 +88,7 @@ class RPSGame
   private
 
   def display_welcome_message
-    puts "Welcome to Rock Paper Scissors!"
+    puts "Welcome to Rock Paper Scissors! You are against #{computer.name}"
   end
 
   def display_goodbye_message
