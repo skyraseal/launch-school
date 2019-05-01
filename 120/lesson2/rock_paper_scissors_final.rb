@@ -1,12 +1,12 @@
 class RPSGame
   @@winning_goal =  10
-  @@character_id = {1 => :r2d2, 2 => :hal, 3 => :chappie, 4 => :sonny, 5 => :number5}
+  @@character_roster = [:r2d2, :hal, :chappie, :sonny, :number5]
   attr_accessor :human, :computer
 
   def initialize
     @human = Human.new
 
-    case @@character_id[rand(1..5)]
+    case @@character_id.sample
     when :r2d2
       @computer = Characters::R2D2.new
     when :hal 
