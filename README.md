@@ -21,3 +21,5 @@ It does not include the pre-course work which can be found at:
     * [101/exercises/medium2](Medium2)
     * [101/exercises/advanced1](Advanced1)
 * Lessons
+
+* Making a change here for a commit! Here's to me restarting Launch School after a long time :)
