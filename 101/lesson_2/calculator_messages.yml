@@ -1,0 +1,20 @@
+welcome: "Welcome to your simple calculator app!"
+direction: "I will ask you for two numbers and and operation!"
+ask_name: "Please enter your name:"
+invalid_name: "Make sure to use a valid name."
+greet_name: "Hi "
+ask_first_number: "What is your first number?"
+ask_second_number: "What is your second number?"
+invalid_number: "That doesn't seem like a valid number. Try again."
+which_operation: "Which operation would you like to perform?
+    1) addition
+    2) substraction
+    3) multiplication
+    4) division"
+invalid_operation: "You must choose 1, 2, 3 or 4"
+adding: "Adding"
+subtracting: "Subtracting"
+multiplying: "Multiplying"
+dividing: "Dividing"
+result: "Your result is "
+perform_again: "Do you want to perform another calculation? (Y to calculate again)"
