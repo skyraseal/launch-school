@@ -85,11 +85,6 @@ def calc_monthly_mortgage(loan_amount, loan_apr, loan_duration)
   monthly_mortgage.round(2)
 end
 
-loan_amount = 0
-loan_apr = 0
-loan_duration = 0
-monthly_mortgage = 0
-
 system("clear")
 prompt(MESSAGES[LANGUAGE]['welcome'])
 loop do
