@@ -1,0 +1,35 @@
+en:
+  rock: 'rock'
+  paper: 'paper'
+  scissors: 'scissors'
+  lizard: 'lizard'
+  spock: 'spock'
+  welcome: 'Welcome to Rock Paper Scissors Lizard Spock'
+  instructions: "Scissors cuts Paper covers Rock crushes Lizard poisons Spock smashes Scissors \ndecapitates Lizard eats Paper disproves Spock vaporizes Rock crushes Scissors."
+  thanks_for_playing: 'Thanks for playing!'
+  request_user_move: 'Enter the corresponding number for the move you want:'
+  invalid_user_choice: "That's not a valid choice. Try again."
+  win: "You win!"
+  lose: "You lose!"
+  tie: "It's a tie!"
+  player_choices: "You chose: %{player_move}; Computer chose %{computer_move}"
+  play_again: 'Do you want to play again?'
+  invalid_try_again: 'Please enter yes or no!'
+
+uwu:
+  rock: 'wock'
+  paper: 'papew'
+  scissors: 'scissows'
+  lizard: 'wizawd'
+  spock: 'spock'
+  welcome: 'Wewcome tuwu wock papew scissows wizawd spock ^_^'
+  instructions: "Scissows cuts papew covews wock cwushes wizawd poisons spock smashes scissows \ndecapitates wizawd eats papew dispwoves spock vapowizes wock cwushes scissows."
+  thanks_for_playing: 'Thanks fow pwaying! UwU'
+  request_user_move: 'Entew the cowwesponding numbew fow the move you wawnt:'
+  invalid_user_choice: "Thawt's nowt a vawid choice. Twy again. >w<!"
+  win: "You win! ^___^"
+  lose: "You wose! ;___;"
+  tie: "Iwt's a tie! @___@"
+  player_choices: "You chose: %{player_move}; computew chose %{computer_move}"
+  play_again: 'Duwu you wawnt tuwu pway again? OwO'
+  invalid_try_again: 'Pwease entew yes ow no! >w<!'

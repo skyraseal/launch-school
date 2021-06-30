@@ -1,17 +1,28 @@
-RPS_MOVES = {
-  1 => 'rock',
-  2 => 'paper',
-  3 => 'scissors',
-  4 => 'lizard',
-  5 => 'spock'
+require 'yaml'
+
+MESSAGES = YAML.load_file('rpsls_messages.yml')
+LANGUAGE = 'en'
+
+rock = MESSAGES[LANGUAGE]['rock']
+paper = MESSAGES[LANGUAGE]['paper']
+scissors = MESSAGES[LANGUAGE]['scissors']
+lizard = MESSAGES[LANGUAGE]['lizard']
+spock = MESSAGES[LANGUAGE]['spock']
+
+RPS_MOVES = { # list of possible moves, key is user input
+  1 => rock,
+  2 => paper,
+  3 => scissors,
+  4 => lizard,
+  5 => spock
 }
 
-RPS_COMPARISONS = {
-  'rock' => ['lizard', 'scissors'],
-  'paper' => ['spock', 'rock'],
-  'scissors' => ['paper', 'lizard'],
-  'lizard' => ['paper', 'spock'],
-  'spock' => ['rock', 'scissors']
+RPS_COMPARISONS = { # key beats values
+  rock => [lizard, scissors],
+  paper => [spock, rock],
+  scissors => [paper, lizard],
+  lizard => [paper, spock],
+  spock => [rock, scissors]
 }
 
 def clear
@@ -27,7 +38,7 @@ def prompt(message)
 end
 
 def valid_choice?(choice)
-  RPS_MOVES.has_key?(choice.to_i)
+  RPS_MOVES.key?(choice.to_i)
 end
 
 def translate_input_to_move(input)
@@ -37,7 +48,7 @@ end
 def request_user_choice
   choice = ''
 
-  prompt("Enter the corresponding number for the move you want:")
+  prompt(MESSAGES[LANGUAGE]['request_user_move'])
   RPS_MOVES.each do |key, value|
     prompt("#{key}: #{value}")
   end
@@ -47,7 +58,7 @@ def request_user_choice
     if valid_choice?(choice)
       break
     else
-      prompt("That's not a valid choice. Try again.")
+      prompt(MESSAGES[LANGUAGE]['invalid_user_choice'])
     end
   end
 
@@ -65,15 +76,15 @@ end
 
 def display_results(player, computer)
   if win?(player, computer)
-    prompt("You won!")
+    prompt(MESSAGES[LANGUAGE]['win'])
   elsif win?(computer, player)
-    prompt("You lose!")
+    prompt(MESSAGES[LANGUAGE]['lose'])
   else
-    prompt("It's a tie!")
+    prompt(MESSAGES[LANGUAGE]['tie'])
   end
 end
 
-def modify_scores(scores, player, computer)
+def modify_scoreboard(scores, player, computer)
   if win?(player, computer)
     scores[:player] += 1
   elsif win?(computer, player)
@@ -90,34 +101,39 @@ def display_score(player_score, computer_score)
 end
 
 def request_try_again?
-  prompt("Do you want to play again?")
+  prompt(MESSAGES[LANGUAGE]['play_again'])
   try_again = ''
 
   loop do
     try_again = gets.chomp.downcase
     break if ['y', 'yes', 'ye', 'n', 'no'].include?(try_again)
-    prompt(MESSAGES[LANGUAGE]['incorrect_try_again_entry'])
+    prompt(MESSAGES[LANGUAGE]['invalid_try_again'])
   end
 
   ['y', 'ye', 'yes'].include?(try_again)
 end
 
-scores = {:player => 0, :computer => 0}
+scores = { player: 0, computer: 0 }
 
 loop do
   clear
-  puts "Welcome to Rock Paper Scissors Lizard Spock"
+  prompt(MESSAGES[LANGUAGE]['welcome'])
+  prompt(MESSAGES[LANGUAGE]['instructions'])
   display_score(scores[:player], scores[:computer])
 
   user_choice = translate_input_to_move(request_user_choice)
   computer_choice = generate_computer_choice
 
-  puts "You chose: #{user_choice}; Computer chose: #{computer_choice}"
+  prompt(format(
+           MESSAGES[LANGUAGE]['player_choices'],
+           player_move: user_choice,
+           computer_move: computer_choice
+         ))
   display_results(user_choice, computer_choice)
-  modify_scores(scores, user_choice, computer_choice)
+  modify_scoreboard(scores, user_choice, computer_choice)
 
   display_score(scores[:player], scores[:computer])
   break unless request_try_again?
 end
 
-prompt("Thanks for playing!")
+prompt(MESSAGES[LANGUAGE]['thanks_for_playing'])
