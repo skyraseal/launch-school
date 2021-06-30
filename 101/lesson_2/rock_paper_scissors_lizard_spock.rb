@@ -117,8 +117,10 @@ scores = { player: 0, computer: 0 }
 
 loop do
   clear
+
   prompt(MESSAGES[LANGUAGE]['welcome'])
   prompt(MESSAGES[LANGUAGE]['instructions'])
+
   display_score(scores[:player], scores[:computer])
 
   user_choice = translate_input_to_move(request_user_choice)
@@ -129,10 +131,13 @@ loop do
            player_move: user_choice,
            computer_move: computer_choice
          ))
+
   display_results(user_choice, computer_choice)
+
   modify_scoreboard(scores, user_choice, computer_choice)
 
   display_score(scores[:player], scores[:computer])
+
   break unless request_try_again?
 end
 
