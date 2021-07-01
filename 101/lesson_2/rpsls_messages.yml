@@ -12,7 +12,7 @@ en:
   win: "You win!"
   lose: "You lose!"
   tie: "It's a tie!"
-  player_choices: "You chose: %{player_move}; Computer chose %{computer_move}"
+  player_choices: "You chose: %{custom_data1}; Computer chose %{custom_data2}"
   play_again: 'Do you want to play again?'
   invalid_try_again: 'Please enter yes or no!'
 
@@ -30,6 +30,6 @@ uwu:
   win: "You win! ^___^"
   lose: "You wose! ;___;"
   tie: "Iwt's a tie! @___@"
-  player_choices: "You chose: %{player_move}; computew chose %{computer_move}"
+  player_choices: "You chose: %{custom_data1}; computew chose %{custom_data2}"
   play_again: 'Duwu you wawnt tuwu pway again? OwO'
   invalid_try_again: 'Pwease entew yes ow no! >w<!'
